@@ -1,4 +1,7 @@
 <div class="col-md-10 col-md-offset-1">
+  <div class="group">
+    <%= link_to("我要发言", new_orid_post_path(@orid), class: "btn btn-danger pull-right") %>
+  </div>
   <div class="page">
     <div class="container">
               <div class="row">
@@ -30,6 +33,9 @@
         <hr>
         <p><%= simple_format(@orid.decisional) %></p>
       </div>
+    </div>
+    <div class="group">
+      <%= link_to("我要发言", new_orid_post_path(@orid), class: "btn btn-danger pull-left") %>
     </div>
   </div>
 </div>
