@@ -13,7 +13,7 @@
 </div>
 
 <div class="form-group">
-<%= f.input :objective, :label => "客观事实层次：我们的感官所接收到的外在现实【计划+所做的事】", input_html: { class: "form-control"} %>
+<%= f.input :objective, as: :ckeditor, :label => "客观事实层次：我们的感官所接收到的外在现实【计划+所做的事】", ckeditor: { toolbar: 'mini', language: 'zh-CN'} %>
 </div>
 <div class="form-group">
 <%= f.input :reflective, :label => "感觉反应层次：我们对所接收到的事物的反应", input_html: { class: "form-control"} %>
