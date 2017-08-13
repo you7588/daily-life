@@ -41,6 +41,26 @@ class OridsController < ApplicationController
     redirect_to orids_path
   end
 
+  def bulk_update
+    total = 0
+    Array(params[:ids]).each do |orid_id|
+      orid = Orid.find(orid_id)
+
+      if params[:commit] == I18n.t(:bulk_update)
+        orid.status = params[:orid_status]
+        if orid.save
+          total += 1
+        end
+      elsif params[:commit] == I18n.t(:bulk_delete)
+        orid.destroy
+        total += 1
+      end
+    end
+
+    flash[:alert] = "成功而完成 #{total} 笔"
+    redirect_to orids_path
+  end
+
   private
 
   def orid_params
