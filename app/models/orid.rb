@@ -5,6 +5,7 @@ class Orid < ApplicationRecord
   validates_inclusion_of :status, :in => STATUS
 
   belongs_to :user
+  has_many :posts
 
   def to_param
       "#{self.id}-#{self.title}-#{self.date}"
