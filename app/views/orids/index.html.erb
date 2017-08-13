@@ -18,10 +18,10 @@
       <%= link_to(orid.title, orid_path(orid)) %>
     </td>
     <td>
-      <%= orid.created_at %>
+      <%= orid.created_at.to_s(:my)  %>
     </td>
     <td>
-      <%= link_to("Edit", edit_orid_path(orid), class: "btn btn-sm btn-default") %> 
+      <%= link_to("Edit", edit_orid_path(orid), class: "btn btn-sm btn-default") %>
       <%= link_to("Destroy", orid_path(orid), class: "btn btn-sm btn-default",
                     :method => :delete, :data => { :confirm => "Are you sure?" }) %>
     </td>
