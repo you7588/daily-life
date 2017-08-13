@@ -1,21 +1,22 @@
 <%= simple_form_for @orid do |f| %>
 <div class="form-group">
+
 <%= f.input :title, input_html: { class: "form-control"} %>
 </div>
 <div class="form-group">
 <%= f.input :date %>
 </div>
 <div class="form-group">
-<%= f.input :objective, input_html: { class: "form-control"} %>
+<%= f.input :objective, :label => "客观事实层次：我们的感官所接收到的外在现实【计划+所做的事】", input_html: { class: "form-control"} %>
 </div>
 <div class="form-group">
-<%= f.input :reflective, input_html: { class: "form-control"} %>
+<%= f.input :reflective, :label => "感觉反应层次：我们对所接收到的事物的反应", input_html: { class: "form-control"} %>
 </div>
 <div class="form-group">
-<%= f.input :interpretive, input_html: { class: "form-control"} %>
+<%= f.input :interpretive, :label => "诠释层次：我们的感官和反应的意义和重要性", input_html: { class: "form-control"} %>
 </div>
 <div class="form-group">
-<%= f.input :decisional, input_html: { class: "form-control"} %>
+<%= f.input :decisional, :label => "决定层次：我们的打算", input_html: { class: "form-control"} %>
 </div>
 
 <%= f.submit "Submit", class: "btn btn-primary", data: { disable_with: "Submiting..."} %>
