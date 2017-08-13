@@ -10,6 +10,12 @@
           <%= @orid.title %> <small> （<%= t(@orid.status, :scope => "orid.status") %>） </small>
         </h1>
 
+        <div class="group">
+          <% if current_user && current_user == @orid.user %>
+          <%= link_to("Edit", edit_orid_path(@orid), class: "btn btn-primary pull-right") %>
+          <% end %>
+        </div>
+
 
         <h3>Objective</h3>
         <hr>
@@ -27,4 +33,5 @@
     </div>
   </div>
 </div>
-</div></div>
+</div>
+</div>

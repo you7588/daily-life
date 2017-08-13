@@ -1,5 +1,6 @@
 class OridsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
+  before_action :find_orid_and_check_permission, only: [:edit, :update, :destroy]
 
   def index
     @orids = Orid.all
@@ -16,7 +17,7 @@ class OridsController < ApplicationController
   def create
     @orid = Orid.new(orid_params)
     @orid.user = current_user
-    
+
     if @orid.save
       redirect_to orids_path
     else
@@ -25,11 +26,9 @@ class OridsController < ApplicationController
   end
 
   def edit
-    @orid = Orid.find(params[:id])
   end
 
   def update
-    @orid = Orid.find(params[:id])
     if @orid.update(orid_params)
       redirect_to orids_path
     else
@@ -38,7 +37,6 @@ class OridsController < ApplicationController
   end
 
   def destroy
-    @orid = Orid.find(params[:id])
     @orid.destroy
     redirect_to orids_path
   end
@@ -67,5 +65,13 @@ class OridsController < ApplicationController
 
   def orid_params
     params.require(:orid).permit(:title, :date, :objective, :reflective, :interpretive, :decisional, :status)
+  end
+
+  def find_orid_and_check_permission
+    @orid = Orid.find(params[:id])
+
+    if current_user != @orid.user
+      redirect_to root_path, alert: "亲，这不是你的地盘~"
+    end
   end
 end

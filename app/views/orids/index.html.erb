@@ -1,16 +1,35 @@
 <div class="container">
 
+<div class="pull-right">
+  <%= link_to("ORID", new_orid_path, :class => "btn btn-danger") %>
+</div>
+<%= form_tag bulk_update_orids_path, :class => "form-inline" do %>
+<table class="table tabel-bordered">
+  <thead>
+    <tr>
+      <th><%= check_box_tag "全选", "1", false, :id => "toggle_all" %></th>
+      <th>标题</th>
+      <th>状态</th>
+      <th>创建人</th>
+      <th>创建时间</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render :partial => "personal" %>
+  </tbody>
+</table>
 
-<% if current_user %>
-<%= render :partial => "personal" %>
-<% else %>
-abc
-
+<p>
+  <%= select_tag :orid_status, options_for_select( Orid::STATUS.map{ |s| [t(s, :scope => + "orid.status"), s] }), :class => "form-control" %>
+  <%= submit_tag t(:bulk_update), :class => "btn btn-primary" %>
+  <%= submit_tag t(:bulk_delete), :class => "btn btn-danger", :data => { :confirm => "Are you sure?"} %>
+</p>
 <% end %>
+</div>
 
 
-
-
+</div>
 
 <script>
   $("#toggle_all").click(function(){
