@@ -1,11 +1,23 @@
 <%= simple_form_for @orid do |f| %>
 <div class="form-group">
 <%= f.input :title, input_html: { class: "form-control"} %>
+</div>
+<div class="form-group">
 <%= f.input :date %>
+</div>
+<div class="form-group">
 <%= f.input :objective, input_html: { class: "form-control"} %>
+</div>
+<div class="form-group">
+<%= f.input :reflective, input_html: { class: "form-control"} %>
+</div>
+<div class="form-group">
 <%= f.input :interpretive, input_html: { class: "form-control"} %>
+</div>
+<div class="form-group">
 <%= f.input :decisional, input_html: { class: "form-control"} %>
 </div>
+
 <%= f.submit "Submit", class: "btn btn-primary", data: { disable_with: "Submiting..."} %>
 
 <% end %>
