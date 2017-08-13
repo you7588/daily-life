@@ -1,8 +1,17 @@
 <%= simple_form_for @orid do |f| %>
 <div class="form-group">
-
 <%= f.input :title, input_html: { class: "form-control"} %>
 </div>
+
+<div class="btn-group data-toggle="buttons"">
+  <% Orid::STATUS.each do |status| %>
+    <label class="btn btn-default">
+      <%= f.radio_button :status, status %>
+      <%= t(status, :scope => "orid.status") %>
+    </label>
+  <% end %>
+</div>
+
 <div class="form-group">
 <%= f.input :objective, :label => "客观事实层次：我们的感官所接收到的外在现实【计划+所做的事】", input_html: { class: "form-control"} %>
 </div>

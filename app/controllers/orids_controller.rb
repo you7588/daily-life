@@ -44,6 +44,6 @@ class OridsController < ApplicationController
   private
 
   def orid_params
-    params.require(:orid).permit(:title, :date, :objective, :reflective, :interpretive, :decisional)
+    params.require(:orid).permit(:title, :date, :objective, :reflective, :interpretive, :decisional, :status)
   end
 end

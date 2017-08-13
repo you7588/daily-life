@@ -1,5 +1,6 @@
 <div class="col-md-10 col-md-offset-1">
 <h1> <%= @orid.title %></h1>
+<h3><%= t(@orid.status, :scope => "orid.status") %></h3>
 
 
 <p>Objective <hr><%= simple_format(@orid.objective) %></p>
