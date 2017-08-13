@@ -1,0 +1,31 @@
+<div class="pull-right">
+  <%= link_to("ORID", new_orid_path, :class => "btn btn-defualt") %>
+</div>
+<table class="table tabel-bordered">
+  <thead>
+    <tr>
+      <td>#</td>
+      <td>Title</td>
+      <td>Create Time</td>
+      <td>Operation</td>
+    </tr>
+  </thead>
+  <tbody>
+  <% @orids.each do |orid| %>
+  <tr>
+    <td>#</td>
+    <td>
+      <%= link_to(orid.title, orid_path(orid)) %>
+    </td>
+    <td>
+      <%= orid.created_at %>
+    </td>
+    <td>
+      <%= link_to("Edit", edit_orid_path(orid), class: "btn btn-sm btn-default") %> 
+      <%= link_to("Destroy", orid_path(orid), class: "btn btn-sm btn-default",
+                    :method => :delete, :data => { :confirm => "Are you sure?" }) %>
+    </td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
