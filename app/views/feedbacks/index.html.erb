@@ -1,3 +1,4 @@
+<div class="col-md-10 col-md-offset-1">
  <%= form_for Feedback.new do |f| %>
    <div class="form-group">
      <%= f.text_area :content, :class => "form-control" %>
@@ -10,9 +11,13 @@
   <% @feedbacks.each do |feedback| %>
 
   <div id="feedback-<%= feedback.id %>" class="panel panel-default">
-    <div class="panel-heading"><%= feedback.user.display_name %></div>
+    <div class="panel-heading">
+      <%= feedback.user.display_name %>
+      <span class="pull-right"><%= feedback.created_at.to_s %></span>
+    </div>
     <div class="panel-body">
       <%= feedback.content %>
+
 
      <% if current_user && feedback.user == current_user %>
        <p class="text-right">
@@ -23,3 +28,4 @@
   </div>
 
   <% end %>
+</div>
