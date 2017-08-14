@@ -1,14 +1,9 @@
-class OridsController < ApplicationController
+class Account::OridsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
   before_action :find_orid_and_check_permission, only: [:edit, :update, :destroy]
 
   def index
-    @orids = Orid.only_public.all
-  end
-
-  def show
-    @orid = Orid.find(params[:id])
-    @posts = @orid.posts.recent
+    @orids = current_user.orids
   end
 
   def new
@@ -20,7 +15,7 @@ class OridsController < ApplicationController
     @orid.user = current_user
 
     if @orid.save
-      redirect_to orids_path
+      redirect_to account_orids_path
     else
       render :new
     end
@@ -39,28 +34,28 @@ class OridsController < ApplicationController
 
   def destroy
     @orid.destroy
-    redirect_to orids_path
+    redirect_to account_orids_path
   end
 
-  # def bulk_update
-  #   total = 0
-  #   Array(params[:ids]).each do |orid_id|
-  #     orid = Orid.find(orid_id)
-  #
-  #     if params[:commit] == I18n.t(:bulk_update)
-  #       orid.status = params[:orid_status]
-  #       if orid.save
-  #         total += 1
-  #       end
-  #     elsif params[:commit] == I18n.t(:bulk_delete)
-  #       orid.destroy
-  #       total += 1
-  #     end
-  #   end
-  #
-  #   flash[:alert] = "成功而完成 #{total} 笔"
-  #   redirect_to orids_path
-  # end
+  def bulk_update
+    total = 0
+    Array(params[:ids]).each do |orid_id|
+      orid = Orid.find(orid_id)
+
+      if params[:commit] == I18n.t(:bulk_update)
+        orid.status = params[:orid_status]
+        if orid.save
+          total += 1
+        end
+      elsif params[:commit] == I18n.t(:bulk_delete)
+        orid.destroy
+        total += 1
+      end
+    end
+
+    flash[:alert] = "成功而完成 #{total} 笔"
+    redirect_to account_orids_path
+  end
 
   private
 

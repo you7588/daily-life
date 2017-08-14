@@ -1,0 +1,26 @@
+<div class="col-md-10 col-md-offset-1">
+  <h2 class="text-center">我发表过的留言</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>内容</th>
+        <th>文章名</th>
+        <th>最后更新</th>
+        <th colspan="2">操作</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.content %></td>
+        <td><%= post.orid.title %></td>
+        <td><%= post.updated_at %></td>
+        <td><%= link_to('编辑', edit_orid_post_path(post.orid, post), class: "btn btn-danger btn-xs") %></td>
+        <td><%= link_to('删除', orid_post_path(post.orid, post), method: :delete, data: { confirm: "你确定？" }, class: "btn btn-primary btn-xs") %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

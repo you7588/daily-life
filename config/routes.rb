@@ -1,9 +1,17 @@
 Rails.application.routes.draw do
+
   devise_for :users
   resources :orids do
-    collection do
-      post :bulk_update
+    resources :posts
+  end
+
+  namespace :account do
+    resources :orids do
+      collection do
+        post :bulk_update
+      end
     end
+    resources :posts
   end
   root 'orids#index'
 
