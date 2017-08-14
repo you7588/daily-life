@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   namespace :account do
     resources :orids
+    resources :posts
   end
   root 'orids#index'
 
