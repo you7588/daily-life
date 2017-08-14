@@ -17,7 +17,6 @@ class FeedbacksController < ApplicationController
      @feedback = current_user.feedbacks.find(params[:id]) # 只能删除自己的贴文
      @feedback.destroy
 
-     redirect_to feedbacks_path
    end
 
    protected
