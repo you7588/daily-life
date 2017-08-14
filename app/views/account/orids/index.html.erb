@@ -16,7 +16,7 @@
       <tr>
         <td>#</td>
         <td><%= link_to(orid.title, orid_path(orid)) %></td>
-        <td><%= orid.description %></td>
+        <td><%= t(orid.status, :scope => "orid.status") %></td>
         <td><%= orid.posts.count %></td>
         <td><%= orid.updated_at %></td>
       </tr>
