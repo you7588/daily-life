@@ -1,4 +1,4 @@
-<div class="container">
+<div class="col-md-10 col-md-offset-1">
 
 <div class="pull-right">
   <%= link_to("ORID", new_orid_path, :class => "btn btn-danger") %>
@@ -9,7 +9,6 @@
     <tr>
 
       <th>标题</th>
-      <th>状态</th>
       <th>创建人</th>
       <th>创建时间</th>
       <th>操作</th>
@@ -22,9 +21,6 @@
     <tr>
       <td>
         <%= link_to(orid.title, orid_path(orid)) %>
-      </td>
-      <td>
-        <%= t(orid.status, :scope => "orid.status") %>
       </td>
       <td>
         <%= orid.user.email %>

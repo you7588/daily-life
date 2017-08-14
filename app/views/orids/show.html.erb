@@ -4,59 +4,57 @@
   </div>
   <div class="page">
     <div class="container">
-              <div class="row">
-                        <div class="col-md-10">
-      <div class="orid-content">
+      <div class="row">
+        <div class="col-md-10">
+          <div class="orid-content">
 
+            <h1 style="margin: 5%;text-align: center">
+              <%= @orid.title %>
+              <% if current_user && current_user == @orid.user %>
+              <small>
+                （<%= t(@orid.status, :scope => "orid.status") %>）
+                <%= link_to("编辑", edit_orid_path(@orid), class: "btn btn-primary pull-right") %>
+              </small>
+              <% end %>
+            </h1>
 
-        <h1 style="margin: 5%;text-align: center">
-          <%= @orid.title %> <small> （<%= t(@orid.status, :scope => "orid.status") %>） </small>
-        </h1>
-
-        <div class="group">
-          <% if current_user && current_user == @orid.user %>
-          <%= link_to("Edit", edit_orid_path(@orid), class: "btn btn-primary pull-right") %>
-          <% end %>
+            <h3>Objective</h3>
+            <hr>
+            <p><%= simple_format(@orid.objective) %></p>
+            <h3>Reflective</h3>
+            <hr>
+            <p><%= simple_format(@orid.reflective) %></p>
+            <h3>Interpretive</h3>
+            <hr>
+            <p><%= simple_format(@orid.interpretive) %></p>
+            <h3>Decisional</h3>
+            <hr>
+            <p><%= simple_format(@orid.decisional) %></p>
+          </div>
         </div>
-
-
-        <h3>Objective</h3>
-        <hr>
-        <p><%= simple_format(@orid.objective) %></p>
-        <h3>Reflective</h3>
-        <hr>
-        <p><%= simple_format(@orid.reflective) %></p>
-        <h3>Interpretive</h3>
-        <hr>
-        <p><%= simple_format(@orid.interpretive) %></p>
-        <h3>Decisional</h3>
-        <hr>
-        <p><%= simple_format(@orid.decisional) %></p>
+        <div class="group">
+          <%= link_to("我要发言", new_orid_post_path(@orid), class: "btn btn-danger pull-left") %>
+        </div>
       </div>
     </div>
-    <div class="group">
-      <%= link_to("我要发言", new_orid_post_path(@orid), class: "btn btn-danger pull-left") %>
-    </div>
   </div>
-</div>
-</div>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>文章内容</th>
-      <th>发表者</th>
-      <th>发表时间</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @posts.each do |post| %>
-    <tr>
-      <td><%= post.content %></td>
-      <td><%= post.user.email %></td>
-      <td><%= post.created_at %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>文章内容</th>
+        <th>发表者</th>
+        <th>发表时间</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.content %></td>
+        <td><%= post.user.email %></td>
+        <td><%= post.created_at %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

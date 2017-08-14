@@ -3,7 +3,7 @@ class OridsController < ApplicationController
   before_action :find_orid_and_check_permission, only: [:edit, :update, :destroy]
 
   def index
-    @orids = Orid.all
+    @orids = Orid.only_public.all
   end
 
   def show
