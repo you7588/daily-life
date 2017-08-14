@@ -1,1 +1,6 @@
 $("#feedback-list").prepend("<%=j render :partial => "feedback", :locals => { :feedback => @feedback } %>");
+<% if @feedback.valid? %>
+$("#feedback_content").val("");
+<% else %>
+alert("提交失败");
+<% end %>
