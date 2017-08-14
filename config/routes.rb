@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   end
 
   namespace :account do
-    resources :orids
+    resources :orids do
+      collection do
+        post :bulk_update
+      end
+    end
     resources :posts
   end
   root 'orids#index'

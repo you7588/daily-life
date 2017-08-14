@@ -1,10 +1,10 @@
 <div class="col-md-10">
   <h2 class="text-center">我的ORID</h2>
-
+<%= form_tag bulk_update_account_orids_path, :class => "form-inline" do %>
   <table class="table">
     <thead>
       <tr>
-        <th>#</th>
+        <th><%= check_box_tag "全选", "1", false, :id => "toggle_all" %></th>
         <th>标题</th>
         <th>状态</th>
         <th>留言数量</th>
@@ -15,7 +15,7 @@
     <tbody>
       <% @orids.each do |orid| %>
       <tr>
-        <td>#</td>
+        <td><%= check_box_tag "ids[]", orid.id %></td>
         <td><%= link_to(orid.title, orid_path(orid)) %></td>
         <td><%= t(orid.status, :scope => "orid.status") %></td>
         <td><%= orid.posts.count %></td>
@@ -29,4 +29,20 @@
       <% end %>
     </tbody>
   </table>
+
+  <p>
+    <%= select_tag :orid_status, options_for_select( Orid::STATUS.map{ |s| [t(s, :scope => + "orid.status"), s] }), :class => "form-control" %>
+    <%= submit_tag t(:bulk_update), :class => "btn btn-primary" %>
+    <%= submit_tag t(:bulk_delete), :class => "btn btn-danger", :data => { :confirm => "你确定？"} %></p>
+  <% end %>
 </div>
+
+  <script>
+    $("#toggle_all").click(function(){
+      if ( $(this).prop("checked") ) {
+        $("input[name='ids[]']").prop("checked", true);
+      } else {
+        $("input[name='ids[]']").prop("checked", false);
+      }
+    })
+  </script>
