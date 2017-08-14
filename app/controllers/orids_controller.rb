@@ -8,7 +8,7 @@ class OridsController < ApplicationController
 
   def show
     @orid = Orid.find(params[:id])
-    @posts = @orid.posts
+    @posts = @orid.posts.order("created_at")
   end
 
   def new
