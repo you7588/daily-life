@@ -1,0 +1,30 @@
+<div class="col-md-10 col-md-offset-1">
+  <div class="page">
+    <div class="container">
+              <div class="row">
+                        <div class="col-md-10">
+      <div class="orid-content">
+
+
+        <h1 style="margin: 5%;text-align: center">
+          <%= @orid.title %> <small> （<%= t(@orid.status, :scope => "orid.status") %>） </small>
+        </h1>
+
+
+        <h3>Objective</h3>
+        <hr>
+        <p><%= simple_format(@orid.objective) %></p>
+        <h3>Reflective</h3>
+        <hr>
+        <p><%= simple_format(@orid.reflective) %></p>
+        <h3>Interpretive</h3>
+        <hr>
+        <p><%= simple_format(@orid.interpretive) %></p>
+        <h3>Decisional</h3>
+        <hr>
+        <p><%= simple_format(@orid.decisional) %></p>
+      </div>
+    </div>
+  </div>
+</div>
+</div></div>

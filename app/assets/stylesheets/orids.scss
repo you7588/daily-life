@@ -1,0 +1,25 @@
+// Place all the styles related to the orids controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.page {
+  margin-bottom: 40px;
+  position: relative;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+}
+
+
+.orid-content {
+  margin: 10% 4%;
+  min-height: 800px;
+  hr {
+    border-top: 4px solid;
+    color: rgba(183, 176, 163, 0.35);
+  }
+  p {
+    margin: 5%;
+  }
+}

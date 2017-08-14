@@ -1,0 +1,54 @@
+<div class="container">
+<div class="pull-right">
+  <%= link_to("ORID", new_orid_path, :class => "btn btn-danger") %>
+</div>
+<%= form_tag bulk_update_orids_path, :class => "form-inline" do %>
+<table class="table tabel-bordered">
+  <thead>
+    <tr>
+      <th><%= check_box_tag "全选", "1", false, :id => "toggle_all" %></th>
+      <th>标题</th>
+      <th>状态</th>
+      <th>创建时间</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @orids.each do |orid| %>
+  <tr>
+    <td><%= check_box_tag "ids[]", orid.id %></td>
+    <td>
+      <%= link_to(orid.title, orid_path(orid)) %>
+    </td>
+    <td>
+      <%= t(orid.status, :scope => "orid.status") %>
+    </td>
+    <td>
+      <%= orid.created_at.to_s(:my)  %>
+    </td>
+    <td>
+      <%= link_to("Edit", edit_orid_path(orid), class: "btn btn-sm btn-default") %>
+      <%= link_to("Destroy", orid_path(orid), class: "btn btn-sm btn-default",
+                    :method => :delete, :data => { :confirm => "Are you sure?" }) %>
+    </td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<p>
+  <%= select_tag :orid_status, options_for_select( Orid::STATUS.map{ |s| [t(s, :scope => + "orid.status"), s] }), :class => "form-control" %>
+  <%= submit_tag t(:bulk_update), :class => "btn btn-primary" %>
+  <%= submit_tag t(:bulk_delete), :class => "btn btn-danger", :data => { :confirm => "Are you sure?"} %>
+</p>
+<% end %>
+</div>
+<script>
+  $("#toggle_all").click(function(){
+    if ( $(this).prop("checked") ) {
+      $("input[name='ids[]']").prop("checked", true);
+    } else {
+      $("input[name='ids[]']").prop("checked", false);
+    }
+  })
+</script>
