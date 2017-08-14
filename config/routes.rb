@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+
   devise_for :users
   resources :orids do
     resources :posts
+  end
+
+  namespace :account do
+    resources :orids
   end
   root 'orids#index'
 
