@@ -8,6 +8,7 @@ class OridsController < ApplicationController
 
   def show
     @orid = Orid.find(params[:id])
+    @posts = @orid.posts
   end
 
   def new
