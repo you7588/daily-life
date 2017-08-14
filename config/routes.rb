@@ -2,9 +2,6 @@ Rails.application.routes.draw do
   devise_for :users
   resources :orids do
     resources :posts
-    collection do
-      post :bulk_update
-    end
   end
   root 'orids#index'
 

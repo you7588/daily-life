@@ -2,7 +2,6 @@
 <% @orids.each do |orid| %>
 
 <tr>
-  <td><%= check_box_tag "ids[]", orid.id %></td>
   <td>
     <%= link_to(orid.title, orid_path(orid)) %>
   </td>
