@@ -14,7 +14,12 @@ Rails.application.routes.draw do
     resources :posts
   end
   root 'feedbacks#index'
-  resources :feedbacks
+  resources :feedbacks do
+    member do
+      post "like" => "feedbacks#like"
+      post "unlike" => "feedbacks#unlike"
+    end
+  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

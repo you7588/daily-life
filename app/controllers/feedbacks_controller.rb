@@ -18,6 +18,23 @@ class FeedbacksController < ApplicationController
 
    end
 
+  def like
+    @feedback = Feedback.find(params[:id])
+    unless @feedback.find_like(current_user)  # 如果已经按讚过了，就略过不再新增
+      Like.create( :user => current_user, :feedback => @feedback)
+    end
+
+    redirect_to feedbacks_path
+  end
+
+  def unlike
+    @feedback = Feedback.find(params[:id])
+    like = @feedback.find_like(current_user)
+    like.destroy
+
+    redirect_to feedbacks_path
+  end
+
    protected
 
    def feedback_params
