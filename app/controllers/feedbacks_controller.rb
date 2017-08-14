@@ -10,7 +10,6 @@ class FeedbacksController < ApplicationController
      @feedback.user = current_user
      @feedback.save
 
-     redirect_to feedbacks_path
    end
 
    def destroy
