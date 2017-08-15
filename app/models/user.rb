@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :likes, :dependent => :destroy
   has_many :liked_feedbacks, :through => :likes, :source => :feedback
   has_one :profile
+    accepts_nested_attributes_for :profile
 
   def display_name
     self.email.split("@").first
