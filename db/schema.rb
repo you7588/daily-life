@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170813143133) do
+ActiveRecord::Schema.define(version: 20170814121307) do
+
+  create_table "feedbacks", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "feedback_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["feedback_id"], name: "index_likes_on_feedback_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
 
   create_table "orids", force: :cascade do |t|
     t.string   "title"

@@ -1,0 +1,17 @@
+<div class="col-md-10 col-md-offset-1">
+ <%= form_for Feedback.new, :remote => true do |f| %>
+   <div class="form-group">
+     <%= f.text_area :content, :class => "form-control" %>
+   </div>
+   <div class="form-group">
+     <%= f.submit :class => "btn btn-primary" %>
+   </div>
+ <% end %>
+<div id="feedback-list">
+  <% @feedbacks.each do |feedback| %>
+
+<%= render :partial => "feedback", :locals => { :feedback => feedback } %>
+
+  <% end %>
+  </div>
+</div>
