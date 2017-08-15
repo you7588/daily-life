@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170815144613) do
+ActiveRecord::Schema.define(version: 20170815150220) do
 
   create_table "feedbacks", force: :cascade do |t|
     t.text     "content"
@@ -47,6 +47,19 @@ ActiveRecord::Schema.define(version: 20170815144613) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "nickname"
+    t.date     "birthday"
+    t.string   "location"
+    t.string   "motto"
+    t.string   "bio"
+    t.string   "wechat"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

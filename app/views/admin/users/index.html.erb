@@ -4,14 +4,15 @@
 <table class="table">
   <tr>
     <th>ID</th>
-    <th>Email</th>
-    <th>Actions</th>
+    <th>邮箱</th>
+    <th colspan="2">操作</th>
   </tr>
   <% @users.each do |user| %>
   <tr>
     <td><%= user.id %></td>
     <td><%= user.email %></td>
-    <td><%= link_to "Edit", edit_admin_user_path(user), :class => "btn btn-default" %></td>
+    <td><%= link_to "更改邮箱", edit_admin_user_path(user), :class => "btn btn-default" %></td>
+    <td><%= link_to "编辑资料", edit_admin_user_profile_path(user), :class => "btn btn-default" %></td>
   </tr>
   <% end %>
 </table>

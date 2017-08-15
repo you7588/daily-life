@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :feedbacks
   has_many :likes, :dependent => :destroy
   has_many :liked_feedbacks, :through => :likes, :source => :feedback
+  has_one :profile
 
   def display_name
     self.email.split("@").first
