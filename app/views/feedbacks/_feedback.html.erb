@@ -1,10 +1,15 @@
 <div id="feedback-<%= feedback.id %>" class="panel panel-default">
   <div class="panel-heading">
     <%= feedback.user.display_name %>
-    <span class="pull-right"><%= feedback.created_at.to_s %></span>
+
+    <span class="pull-right"><%= feedback.created_at.to_s %>
+      <% if current_user && feedback.user == current_user %>
+      <%= link_to "", feedback_path(feedback), :method => :delete, :remote => true, :class => "fa fa-trash" %>
+      <% end %></span>
+
   </div>
   <div class="panel-body">
-    <span id="feedback-thumsup-<%= feedback.id %>" class="label label-success"><%= feedback.likes.count %>👍</span>
+
     <%= feedback.content %>
 
     <div class="text-right">
@@ -12,17 +17,16 @@
       <% if feedback.liked_users.any? %>
       <%= feedback.liked_users.map{ |u| u.display_name }.join(",") %>点了赞
       <% end %>
-
+      <span id="feedback-thumsup-<%= feedback.id %>" class="badge"><%= feedback.likes.count %>
+      </span>
       <% if current_user # 有登入才可以按讚 %>
       <% if feedback.find_like(current_user) %>
-      <%= link_to "取消赞", unlike_feedback_path(feedback), :method => :feedback, :class => "btn btn-primary" %>
+      <%= link_to "", unlike_feedback_path(feedback), :method => :feedback, :class => "fa fa-heart" %>
     <% else %>
-      <%= link_to "点赞", like_feedback_path(feedback), :method => :feedback, :class => "btn btn-primary" %>
+      <%= link_to "", like_feedback_path(feedback), :method => :feedback, :class => "fa fa-heart-o" %>
       <% end %>
       <% end %>
-      <% if current_user && feedback.user == current_user %>
-        <%= link_to "Delete", feedback_path(feedback), :method => :delete, :remote => true, :class => "btn btn-danger" %>
-      <% end %>
+
     </div>
   </div>
 </div>
