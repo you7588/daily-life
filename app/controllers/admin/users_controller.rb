@@ -1,5 +1,6 @@
 class Admin::UsersController < ApplicationController
  before_action :authenticate_user!, only: [:update, :edit]
+ before_action :require_is_admin
   def index
     @users = User.all
   end
@@ -17,6 +18,8 @@ class Admin::UsersController < ApplicationController
       render "edit"
     end
   end
+
+
 
   protected
 
