@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     end
     resources :posts
   end
-  root 'feedbacks#index'
+  root 'welcome#index'
   resources :feedbacks do
     member do
       post "like" => "feedbacks#like"
