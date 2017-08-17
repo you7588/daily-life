@@ -3,7 +3,7 @@
 <%= form_for @profile, :url => admin_user_profile_path(@user) do |f| %>
 
   <div class="form-group">
-    <%= f.label :"昵称" %>
+    <%= f.label :nickname %>
     <%= f.text_field :nickname, :class => "form-control" %>
   </div>
 
