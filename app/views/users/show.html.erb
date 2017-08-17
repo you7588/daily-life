@@ -9,4 +9,8 @@
 <p>坐标：<%= @user.profile.location %></p>
 <p>座右铭：<%= @user.profile.motto %></p>
 <p>个人简介：<%= simple_format @user.profile.bio %></p>
+
+
+<%= link_to('修改个人资料', edit_user_path) %>
+<%= link_to("修改密码", edit_registration_path(:user)) %>
 </div>
