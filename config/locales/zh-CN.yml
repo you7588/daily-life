@@ -1,6 +1,13 @@
 "zh-CN":
   bulk_update: 批次编辑
   bulk_delete: 批次删除
+  activerecord:
+    attributes:
+      orid:
+        objective: 客观事实层次：我们的感官所接收到的外在现实【计划+所做的事】
+        reflective: 感觉反应层次：我们对所接收到的事物的反应
+        interpretive: 诠释层次：我们的感官和反应的意义和重要性
+        decisional: 决定层次：我们的打算
   orid:
     status:
       draft: 草稿

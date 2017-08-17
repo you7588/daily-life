@@ -1,6 +1,6 @@
 class Account::OridsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
-  before_action :find_orid_and_check_permission, only: [:edit, :update, :destroy]
+  before_action :find_orid_and_check_permission, only: [:new, :create, :update, :edit, :destroy]
 
   def index
     @orids = current_user.orids
@@ -26,7 +26,7 @@ class Account::OridsController < ApplicationController
 
   def update
     if @orid.update(orid_params)
-      redirect_to orids_path
+      redirect_to account_orids_path
     else
       render :edit
     end

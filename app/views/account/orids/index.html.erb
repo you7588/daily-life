@@ -10,7 +10,9 @@
 </div>
 </div>
 <div class="col-md-10 col-md-offset-1">
-
+  <div class="pull-right">
+    <%= link_to("ORID", new_orid_path, :class => "btn btn-danger") %>
+  </div>
   <%= form_tag bulk_update_account_orids_path, :class => "form-inline" do %>
   <table class="table">
     <thead>

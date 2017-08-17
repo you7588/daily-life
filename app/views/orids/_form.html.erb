@@ -2,7 +2,32 @@
 <div class="form-group">
 <%= f.input :title, input_html: { class: "form-control"}, :placeholder => "这一天的关键字"  %>
 </div>
+<div class="form-group " >
+<%= f.input :objective, input_html: { class: "form-control", style: "height:150px" }, :placeholder =>
+"关于今天的课程, 你记得什么?
+完成了什么?
+" %>
+</div>
 
+<div class="form-group">
+<%= f.input :reflective, input_html: { class: "form-control", style: "height:150px" }, :placeholder =>
+"你要如何形容今天的情绪
+今天的高峰是什么?
+今天的低点是什么?
+" %>
+</div>
+<div class="form-group">
+<%= f.input :interpretive, input_html: { class: "form-control", style: "height:150px" }, :placeholder =>
+"我们今天学到了什么?
+今天一个重要的领悟是什么?
+" %>
+</div>
+<div class="form-group">
+<%= f.input :decisional, input_html: { class: "form-control", style: "height:150px" }, :placeholder =>
+"我们会如何用一句话形容今天的工作
+有哪些工作需要明天继续努力?
+" %>
+</div>
 <div class="btn-group data-toggle="buttons"">
   <% Orid::STATUS.each do |status| %>
     <label class="btn btn-default">
@@ -11,39 +36,6 @@
     </label>
   <% end %>
 </div>
-
-<div class="form-group " >
-  <h4>客观事实层次：我们的感官所接收到的外在现实【计划+所做的事】</h4>
-
-<%= f.input :objective, input_html: { class: "form-control", style: "height:150px" }, :placeholder =>
-"关于今天的课程, 你记得什么?
-完成了什么?
-" %>
-</div>
-
-<div class="form-group">
-  <h4>感觉反应层次：我们对所接收到的事物的反应</h4>
-<%= f.input :reflective, input_html: { class: "form-control", style: "height:150px" }, :placeholder =>
-"你要如何形容今天的情绪
-今天的高峰是什么?
-今天的低点是什么?
-" %>
-</div>
-<div class="form-group">
-  <h4>诠释层次：我们的感官和反应的意义和重要性</h4>
-<%= f.input :interpretive, input_html: { class: "form-control", style: "height:150px" }, :placeholder =>
-"我们今天学到了什么?
-今天一个重要的领悟是什么?
-" %>
-</div>
-<div class="form-group">
-  <h4>决定层次：我们的打算</h4>
-<%= f.input :decisional, input_html: { class: "form-control", style: "height:150px" }, :placeholder =>
-"我们会如何用一句话形容今天的工作
-有哪些工作需要明天继续努力?
-" %>
-</div>
-
-<%= f.submit "Submit", class: "btn btn-primary", data: { disable_with: "Submiting..."} %>
+<%= f.submit "提交", class: "btn btn-primary", data: { disable_with: "Submiting..."} %>
 
 <% end %>
