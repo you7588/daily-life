@@ -1,6 +1,6 @@
 class Account::OridsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
-  before_action :find_orid_and_check_permission, only: [:new, :create, :update, :edit, :destroy]
+  before_action :find_orid_and_check_permission, only: [:update, :edit, :destroy]
   layout "account"
   def index
     @orids = current_user.orids

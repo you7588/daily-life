@@ -12,7 +12,7 @@
 </div>
 <div class="col-md-10 col-md-offset-1">
   <div class="pull-right">
-    <%= link_to("ORID", new_orid_path, :class => "btn btn-danger") %>
+    <%= link_to("ORID", new_account_orid_path, :class => "btn btn-danger") %>
   </div>
   <%= form_tag bulk_update_account_orids_path, :class => "form-inline" do %>
   <table class="table">
@@ -35,8 +35,8 @@
         <td><%= orid.posts.count %></td>
         <td><%= orid.created_at.to_s(:my) %></td>
         <td>
-          <%= link_to("Edit", edit_orid_path(orid), class: "btn btn-sm btn-default") %>
-          <%= link_to("Destroy", orid_path(orid), class: "btn btn-sm btn-default",
+          <%= link_to("Edit", edit_account_orid_path(orid), class: "btn btn-sm btn-default") %>
+          <%= link_to("Destroy", account_orid_path(orid), class: "btn btn-sm btn-default",
                         :method => :delete, :data => { :confirm => "Are you sure?" }) %>
         </td>
       </tr>
