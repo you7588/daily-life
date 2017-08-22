@@ -60,7 +60,7 @@ class Account::OridsController < ApplicationController
   private
 
   def orid_params
-    params.require(:orid).permit(:title, :date, :objective, :reflective, :interpretive, :decisional, :status)
+    params.require(:orid).permit(:title, :date, :objective, :reflective, :interpretive, :decisional, :status, :keyword)
   end
 
   def find_orid_and_check_permission
