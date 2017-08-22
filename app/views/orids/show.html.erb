@@ -56,6 +56,9 @@
         <td><%= simple_format(post.content) %></td>
         <td><%= post.user.email %></td>
         <td><%= post.created_at %></td>
+        <td> <%= link_to('Edit', edit_orid_post_path(post.orid, post), class: "btn btn-default btn-xs") %></td>
+<td> <%= link_to('Delete', orid_post_path(post.orid, post), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default btn-xs") %></td>
+
       </tr>
       <% end %>
     </tbody>
