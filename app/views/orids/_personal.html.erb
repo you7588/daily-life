@@ -1,0 +1,16 @@
+<div class="col-md-10 col-md-offset-1">
+  <div class="orid">
+    <div class="row" style="text-align: center">
+    <% @orids.each do |orid| %>
+    <h2><%= link_to(orid.title, orid_path(orid)) %></h2>
+    <p class="orid-little">
+    <i class="fa fa-user" aria-hidden="true"> <%= orid.user.profile.nickname %></i>
+    |
+    <i class="fa fa-calendar" aria-hidden="true"> <%= orid.updated_at.to_s(:my) %></i>
+    |
+    <i class="fa fa-commenting" aria-hidden="true"> <%= orid.posts.count %></i></p>
+    <% end %>
+  </div>
+
+</div>
+</div>

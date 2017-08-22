@@ -10,39 +10,4 @@
 </div>
 </div>
 
-<div class="col-md-10 col-md-offset-1">
-<table class="table tabel-bordered">
-  <thead>
-    <tr>
-      <th>标题</th>
-      <th>创建人</th>
-      <th>更新时间</th>
-      <th>留言数量</th>
-    </tr>
-  </thead>
-  <tbody>
-
-    <% @orids.each do |orid| %>
-
-    <tr>
-      <td>
-        <%= link_to(orid.title, orid_path(orid)) %>
-      </td>
-      <td>
-        <%= orid.user.email %>
-      </td>
-      <td>
-        <%= orid.updated_at.to_s(:my) %>
-      </td>
-      <td><%= orid.posts.count %></td>
-    </tr>
-
-    <% end %>
-
-  </tbody>
-</table>
-
-</div>
-
-
-</div>
+<%= render "personal" %>
