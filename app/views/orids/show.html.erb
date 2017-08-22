@@ -1,5 +1,7 @@
 <div class="jumbotron">
-<h2 class="text-center">战友们共同成长<br><small>和战友们一起不孤独，共同成长！~</small></h2>
+  <h2 class="text-center">战友们共同成长<br>
+    <small>和战友们一起不孤独，共同成长！~</small>
+  </h2>
 </div>
 
 <div class="col-md-10 col-md-offset-1">
@@ -7,33 +9,56 @@
     <div class="container">
       <div class="row">
         <div class="col-md-10">
+
+          <h1 style="margin: 5%; text-align: center">
+            <%= @orid.title %>
+            <% if current_user && current_user == @orid.user %>
+            <small>
+              （<%= t(@orid.status, :scope => "orid.status") %>）
+            </small>
+          </h1>
+            <%= link_to("编辑", edit_orid_path(@orid), class: "fa fa-pencil-square-o pull-right") %>
+            <% end %>
+
+          <div class="row" style="text-align: center">
+            <p class="orid-little">
+
+              <i class="fa fa-user" aria-hidden="true">
+                <%= @orid.user.profile.nickname %></i>
+              |
+              <i class="fa fa-calendar" aria-hidden="true">
+                发表于<%= @orid.created_at.to_s(:my) %></i>
+              |
+              <i class="fa fa-commenting" aria-hidden="true">
+                <%= @orid.posts.count %>
+              </i>
+              |
+              <span class="views">
+                <i class="fa fa-eye" aria-hidden="true">
+                  <%= @orid.views %></i>
+              </span>
+            </p>
+            <h3 class="keyword">
+              <hr>
+              <%= @orid.keyword %>
+              <hr>
+            </h3>
+          </div>
           <div class="orid-content">
-
-
-            <h1 style="margin: 5%;text-align: center">
-              <%= @orid.title %>
-              <% if current_user && current_user == @orid.user %>
-              <small>
-                （<%= t(@orid.status, :scope => "orid.status") %>）
-                <%= link_to("编辑", edit_orid_path(@orid), class: "btn btn-primary pull-right") %>
-              </small>
-              <% end %>
-            </h1>
-            <p>发表于 <%= @orid.created_at.to_s(:my) %></p>
-            <p><%= @orid.keyword %></p>
-
-            <h3>Objective</h3>
-            <hr>
-            <p><%= simple_format(@orid.objective) %></p>
-            <h3>Reflective</h3>
-            <hr>
-            <p><%= simple_format(@orid.reflective) %></p>
-            <h3>Interpretive</h3>
-            <hr>
-            <p><%= simple_format(@orid.interpretive) %></p>
-            <h3>Decisional</h3>
-            <hr>
-            <p><%= simple_format(@orid.decisional) %></p>
+            <div class="row">
+              <h3>Objective</h3>
+              <hr>
+              <p><%= simple_format(@orid.objective) %></p>
+              <h3>Reflective</h3>
+              <hr>
+              <p><%= simple_format(@orid.reflective) %></p>
+              <h3>Interpretive</h3>
+              <hr>
+              <p><%= simple_format(@orid.interpretive) %></p>
+              <h3>Decisional</h3>
+              <hr>
+              <p><%= simple_format(@orid.decisional) %></p>
+            </div>
           </div>
         </div>
         <div class="group">
@@ -57,8 +82,10 @@
         <td><%= simple_format(post.content) %></td>
         <td><%= post.user.email %></td>
         <td><%= post.created_at %></td>
-        <td> <%= link_to('Edit', edit_orid_post_path(post.orid, post), class: "btn btn-default btn-xs") %></td>
-<td> <%= link_to('Delete', orid_post_path(post.orid, post), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default btn-xs") %></td>
+        <td>
+          <%= link_to('Edit', edit_orid_post_path(post.orid, post), class: "btn btn-default btn-xs") %></td>
+        <td>
+          <%= link_to('Delete', orid_post_path(post.orid, post), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default btn-xs") %></td>
 
       </tr>
       <% end %>

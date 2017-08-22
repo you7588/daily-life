@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170822053949) do
+ActiveRecord::Schema.define(version: 20170822060718) do
 
   create_table "feedbacks", force: :cascade do |t|
     t.text     "content"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20170822053949) do
     t.string   "status",       default: "draft"
     t.integer  "user_id"
     t.string   "keyword"
+    t.integer  "views"
   end
 
   create_table "posts", force: :cascade do |t|

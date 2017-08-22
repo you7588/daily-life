@@ -9,6 +9,7 @@ class OridsController < ApplicationController
   def show
     @orid = Orid.find(params[:id])
     @posts = @orid.posts.recent
+    @orid.increment
   end
 
   def new
