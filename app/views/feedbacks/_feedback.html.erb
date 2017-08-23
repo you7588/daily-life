@@ -14,11 +14,10 @@
 
     <div class="text-right">
 
-      <% if feedback.liked_users.any? %>
+      <!-- <% if feedback.liked_users.any? %>
       <%= feedback.liked_users.map{ |u| u.display_name }.join(",") %>点了赞
-      <% end %>
-      <span id="feedback-thumsup-<%= feedback.id %>" class="badge"><%= feedback.likes.count %>
-      </span>
+      <% end %> -->
+
       <% if current_user # 有登入才可以按讚 %>
       <% if feedback.find_like(current_user) %>
       <%= link_to "", unlike_feedback_path(feedback), :method => :feedback, :class => "fa fa-heart" %>
@@ -26,7 +25,7 @@
       <%= link_to "", like_feedback_path(feedback), :method => :feedback, :class => "fa fa-heart-o" %>
       <% end %>
       <% end %>
-
+      <span id="feedback-thumsup-<%= feedback.id %>"><%= feedback.likes.count %></span>
     </div>
   </div>
 </div>

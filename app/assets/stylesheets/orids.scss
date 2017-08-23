@@ -6,9 +6,9 @@
   margin-bottom: 40px;
   position: relative;
   background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0);
   border-radius: 6px;
-  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -22,4 +22,13 @@
   p {
     margin: 5%;
   }
+}
+
+.orid-little {
+  text-align: center;
+  margin-top: 30px;
+  text-indent: 20px;
+}
+.keyword {
+
 }

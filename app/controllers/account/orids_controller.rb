@@ -1,7 +1,7 @@
 class Account::OridsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
-  before_action :find_orid_and_check_permission, only: [:edit, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:index, :new, :create, :update, :edit, :destroy]
+  before_action :find_orid_and_check_permission, only: [:update, :edit, :destroy]
+  layout "account"
   def index
     @orids = current_user.orids
   end
@@ -26,7 +26,7 @@ class Account::OridsController < ApplicationController
 
   def update
     if @orid.update(orid_params)
-      redirect_to orids_path
+      redirect_to account_orids_path
     else
       render :edit
     end
@@ -60,7 +60,7 @@ class Account::OridsController < ApplicationController
   private
 
   def orid_params
-    params.require(:orid).permit(:title, :date, :objective, :reflective, :interpretive, :decisional, :status)
+    params.require(:orid).permit(:title, :date, :objective, :reflective, :interpretive, :decisional, :status, :keyword)
   end
 
   def find_orid_and_check_permission

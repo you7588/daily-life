@@ -1,41 +1,13 @@
-<div class="col-md-10 col-md-offset-1">
+<div class="jumbotron">
+<h2 class="text-center">战友们共同成长<br><small>和战友们一起不孤独，共同成长！~</small></h2>
+<div class="menu">
+<i class="fa fa-home" aria-hidden="true">首页</i>
+<i class="fa fa-clock-o" aria-hidden="true">时间轴</i>
 
-<div class="pull-right">
-  <%= link_to("ORID", new_orid_path, :class => "btn btn-danger") %>
+<i class="fa fa-th-list" aria-hidden="true">分类</i>
+<i class="fa fa-thumb-tack" aria-hidden="true">标签</i>
+<i class="fa fa-clock-o" aria-hidden="true">关于本站</i>
+</div>
 </div>
 
-<table class="table tabel-bordered">
-  <thead>
-    <tr>
-      <th>标题</th>
-      <th>创建人</th>
-      <th>更新时间</th>
-      <th>留言数量</th>
-    </tr>
-  </thead>
-  <tbody>
-
-    <% @orids.each do |orid| %>
-
-    <tr>
-      <td>
-        <%= link_to(orid.title, orid_path(orid)) %>
-      </td>
-      <td>
-        <%= orid.user.email %>
-      </td>
-      <td>
-        <%= orid.updated_at.to_s(:my) %>
-      </td>
-      <td><%= orid.posts.count %></td>
-    </tr>
-
-    <% end %>
-
-  </tbody>
-</table>
-
-</div>
-
-
-</div>
+<%= render "personal" %>

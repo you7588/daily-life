@@ -1,4 +1,4 @@
-<%= simple_form_for @orid do |f| %>
+<%= simple_form_for [:account, @orid ] do |f| %>
 <div class="form-group">
 <%= f.input :title, input_html: { class: "form-control"}, :placeholder => "这一天的关键字"  %>
 </div>
@@ -7,7 +7,7 @@
   <%= f.input :keyword, input_html: { class: "form-control"} %>
 </div>
 
-<div class="form-group " >
+<div class="form-group" >
 <%= f.input :objective, input_html: { class: "form-control", style: "height:150px" }, :placeholder =>
 "关于今天的课程, 你记得什么?
 完成了什么?

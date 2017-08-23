@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  resource :user
+
+  namespace :admin do
+    resources :users do
+      resource :profile, :controller => "user_profiles"
+    end
+  end
+
   devise_for :users
   resources :orids do
     resources :posts
@@ -13,7 +21,7 @@ Rails.application.routes.draw do
     end
     resources :posts
   end
-  root 'feedbacks#index'
+  root 'welcome#index'
   resources :feedbacks do
     member do
       post "like" => "feedbacks#like"

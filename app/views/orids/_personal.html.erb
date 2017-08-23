@@ -1,0 +1,31 @@
+<%= link_to("ORID", new_account_orid_path, :class => "btn btn-danger") %>
+
+<div class="col-md-8 col-md-offset-2">
+
+  <div class="row" style="text-align: center">
+    <% @orids.each do |orid| %>
+    <h2><%= link_to(orid.title, orid_path(orid)) %></h2>
+    <p class="orid-little">
+
+      <i class="fa fa-user" aria-hidden="true">
+        <%= orid.user.profile.nickname %></i>
+      |
+      <i class="fa fa-calendar" aria-hidden="true">
+        <%= orid.updated_at.to_s(:my) %></i>
+      |
+      <i class="fa fa-commenting" aria-hidden="true">
+        <%= orid.posts.count %>
+      </i>
+      |
+      <span class="views"><i class="fa fa-eye" aria-hidden="true">  <%= orid.views %></i></span>
+    </p>
+    <h3 class="keyword">
+      <hr>
+      <%= orid.keyword %>
+      <hr>
+    </h3>
+    <%= link_to("", edit_orid_path(orid), class: "fa fa-pencil-square-o pull-right") %>
+    <% end %>
+  </div>
+
+</div>
