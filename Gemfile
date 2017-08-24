@@ -37,9 +37,10 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'simple_form'
 gem 'devise-i18n'
-gem 'ckeditor'
 gem 'faker'
 gem 'font-awesome-rails'
+gem 'pagedown-bootstrap-rails'
+gem 'redcarpet'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

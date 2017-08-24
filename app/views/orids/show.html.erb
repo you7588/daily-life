@@ -48,16 +48,16 @@
             <div class="row">
               <h3>Objective</h3>
               <hr>
-              <p><%= simple_format(@orid.objective) %></p>
+              <p><%= to_markdown(@orid.objective) %></p>
               <h3>Reflective</h3>
               <hr>
-              <p><%= simple_format(@orid.reflective) %></p>
+              <p><%= to_markdown(@orid.reflective) %></p>
               <h3>Interpretive</h3>
               <hr>
-              <p><%= simple_format(@orid.interpretive) %></p>
+              <p><%= to_markdown(@orid.interpretive) %></p>
               <h3>Decisional</h3>
               <hr>
-              <p><%= simple_format(@orid.decisional) %></p>
+              <p><%= to_markdown(@orid.decisional) %></p>
             </div>
           </div>
         </div>
