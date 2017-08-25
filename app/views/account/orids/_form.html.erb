@@ -8,27 +8,27 @@
 </div>
 
 <div class="form-group" >
-<%= f.input :objective, input_html: { class: "form-control", style: "height:150px" }, :placeholder =>
+<%= f.input :objective, as: :pagedown, input_html: { preview: true, rows: 10 }, :placeholder =>
 "关于今天的课程, 你记得什么?
 完成了什么?
 " %>
 </div>
 
 <div class="form-group">
-<%= f.input :reflective, input_html: { class: "form-control", style: "height:150px" }, :placeholder =>
+<%= f.input :reflective, as: :pagedown, input_html: { preview: true, rows: 10 }, :placeholder =>
 "你要如何形容今天的情绪
 今天的高峰是什么?
 今天的低点是什么?
 " %>
 </div>
 <div class="form-group">
-<%= f.input :interpretive, input_html: { class: "form-control", style: "height:150px" }, :placeholder =>
+<%= f.input :interpretive, as: :pagedown, input_html: { preview: true, rows: 10 }, :placeholder =>
 "我们今天学到了什么?
 今天一个重要的领悟是什么?
 " %>
 </div>
 <div class="form-group">
-<%= f.input :decisional, input_html: { class: "form-control", style: "height:150px" }, :placeholder =>
+<%= f.input :decisional, as: :pagedown, input_html: { preview: true, rows: 10 }, :placeholder =>
 "我们会如何用一句话形容今天的工作
 有哪些工作需要明天继续努力?
 " %>

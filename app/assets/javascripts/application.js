@@ -11,8 +11,18 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap-sprockets
 //= require jquery_ujs
 //= require bootstrap/alert
 //= require bootstrap/dropdown
-//= require ckeditor/init
+//= require pagedown_bootstrap
+//= require pagedown_init
 //= require_tree .
+
+$(function() {　
+  $('.wmd-output').each(function(i) {　　
+    var converter = new Markdown.Converter();　　
+    var content = $(this).html();　　
+    $(this).html(converter.makeHtml(content));　
+  });
+});
