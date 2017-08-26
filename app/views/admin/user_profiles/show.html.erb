@@ -1,0 +1,16 @@
+<div class="col-md-10 col-md-offset-1">
+<h1>我的个人资料</h1>
+
+
+<p>我的邮箱： <%= @user.email %></p>
+<p>昵称： <%= @user.profile.nickname %></p>
+<p>微信号：<%= @user.profile.wechat %></p>
+<p>生日：<%= @user.profile.birthday %></p>
+<p>坐标：<%= @user.profile.location %></p>
+<p>座右铭：<%= @user.profile.motto %></p>
+<p>个人简介：<%= simple_format @user.profile.bio %></p>
+
+
+<%= link_to('修改个人资料', edit_user_path) %>
+<%= link_to("修改密码", edit_registration_path(:user)) %>
+</div>

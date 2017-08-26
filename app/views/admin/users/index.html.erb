@@ -1,18 +1,22 @@
 <div class="col-md-10 col-md-offset-1">
-<h1>Admin Users</h1>
+<h1>管理页面 <small>（总共有<%= @users.count %>个用户）</small></h1>
 
 <table class="table">
   <tr>
     <th>ID</th>
     <th>邮箱</th>
+    <th>昵称</th>
+    <th>最后登录时间</th>
     <th colspan="2">操作</th>
   </tr>
   <% @users.each do |user| %>
   <tr>
     <td><%= user.id %></td>
     <td><%= user.email %></td>
+    <td><%= user.name %></td>
+    <td><%= user.updated_at %></td>
     <td><%= link_to "更改邮箱", edit_admin_user_path(user), :class => "btn btn-default" %></td>
-    <td><%= link_to "编辑资料", edit_admin_user_profile_path(user), :class => "btn btn-default" %></td>
+    <td><%= link_to "显示资料", admin_user_profile_path(user), :class => "btn btn-default" %></td>
   </tr>
   <% end %>
 </table>
