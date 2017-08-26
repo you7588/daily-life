@@ -8,27 +8,27 @@
 </div>
 
 <div class="form-group" >
-<%= f.input :objective, as: :pagedown, input_html: { preview: true, rows: 10 }, :placeholder =>
+<%= f.input :objective, as: :pagedown, input_html: { preview: true, rows: 3 }, :placeholder =>
 "关于今天的课程, 你记得什么?
 完成了什么?
 " %>
 </div>
 
 <div class="form-group">
-<%= f.input :reflective, as: :pagedown, input_html: { preview: true, rows: 10 }, :placeholder =>
+<%= f.input :reflective, as: :pagedown, input_html: { preview: true, rows: 4 }, :placeholder =>
 "你要如何形容今天的情绪
 今天的高峰是什么?
 今天的低点是什么?
 " %>
 </div>
 <div class="form-group">
-<%= f.input :interpretive, as: :pagedown, input_html: { preview: true, rows: 10 }, :placeholder =>
+<%= f.input :interpretive, as: :pagedown, input_html: { preview: true, rows: 3 }, :placeholder =>
 "我们今天学到了什么?
 今天一个重要的领悟是什么?
 " %>
 </div>
 <div class="form-group">
-<%= f.input :decisional, as: :pagedown, input_html: { preview: true, rows: 10 }, :placeholder =>
+<%= f.input :decisional, as: :pagedown, input_html: { preview: true, rows: 3 }, :placeholder =>
 "我们会如何用一句话形容今天的工作
 有哪些工作需要明天继续努力?
 " %>
@@ -44,3 +44,12 @@
 <%= f.submit "提交", class: "btn btn-primary", data: { disable_with: "Submiting..."} %>
 
 <% end %>
+
+<script>
+$(function(){
+  autosize($("#wmd-input-objective"));
+  autosize($("#wmd-input-reflective"));
+  autosize($("#wmd-input-interpretive"));
+  autosize($("#wmd-input-decisional"));
+});
+</script>

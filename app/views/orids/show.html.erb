@@ -23,16 +23,9 @@
           <div class="row" style="text-align: center">
             <p class="orid-little">
 
-              <i class="fa fa-user" aria-hidden="true">
-                <%= @orid.user.profile.nickname %></i>
-              |
-              <i class="fa fa-calendar" aria-hidden="true">
-                发表于<%= @orid.created_at.to_s(:my) %></i>
-              |
-              <i class="fa fa-commenting" aria-hidden="true">
-                <%= @orid.posts.count %>
-              </i>
-              |
+              <i class="fa fa-user" aria-hidden="true"><%= @orid.user.profile.nickname %></i> |
+              <i class="fa fa-calendar" aria-hidden="true">发表于<%= @orid.created_at.to_s(:my) %></i> |
+              <i class="fa fa-commenting" aria-hidden="true"><%= @orid.posts.count %></i> |
               <span class="views">
                 <i class="fa fa-eye" aria-hidden="true">
                   <%= @orid.views %></i>

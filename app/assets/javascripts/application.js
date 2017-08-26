@@ -17,6 +17,7 @@
 //= require bootstrap/dropdown
 //= require pagedown_bootstrap
 //= require pagedown_init
+//= require autosize.min
 //= require_tree .
 
 $(function() {　

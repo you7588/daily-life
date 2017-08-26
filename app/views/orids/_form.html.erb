@@ -44,3 +44,12 @@
 <%= f.submit "提交", class: "btn btn-primary", data: { disable_with: "Submiting..."} %>
 
 <% end %>
+
+<script>
+$(function(){
+  autosize($("#wmd-input-objective"));
+  autosize($("#wmd-input-reflective"));
+  autosize($("#wmd-input-interpretive"));
+  autosize($("#wmd-input-decisional"));
+});
+</script>
