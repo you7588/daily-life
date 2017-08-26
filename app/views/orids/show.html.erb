@@ -12,16 +12,13 @@
           <p class="pull-right">
             <%= t(@orid.status, :scope => "orid.status") %>
             <%= link_to("编辑", edit_orid_path(@orid), class: "fa fa-pencil-square-o") %></p>
-          <% end %>
+            <% end %>
 
           <div class="row" style="text-align: center">
             <p class="orid-little">
-              <i class="fa fa-user" aria-hidden="true"><%= @orid.user.display_name %></i>
-              |
-              <i class="fa fa-calendar" aria-hidden="true">发表于<%= @orid.created_at.to_s(:my) %></i>
-              |
-              <i class="fa fa-commenting" aria-hidden="true"><%= @orid.posts.count %></i>
-              |
+              <i class="fa fa-user" aria-hidden="true"><%= @orid.user.display_name %></i> |
+              <i class="fa fa-calendar" aria-hidden="true">发表于<%= @orid.created_at.to_s(:my) %></i> |
+              <i class="fa fa-commenting" aria-hidden="true"><%= @orid.posts.count %></i> |
               <span class="views">
                 <i class="fa fa-eye" aria-hidden="true">
                   <%= @orid.views %></i>
@@ -34,18 +31,22 @@
             </h4>
           </div>
 
+
           <div class="orid-content">
             <div class="row">
-              <h3>Objective</h3>
+              <h4>Objective</h4>
               <hr>
               <p><%= to_markdown(@orid.objective) %></p>
-              <h3>Reflective</h3>
+              <br>
+              <h4>Reflective</h4>
               <hr>
               <p><%= to_markdown(@orid.reflective) %></p>
-              <h3>Interpretive</h3>
+              <br>
+              <h4>Interpretive</h4>
               <hr>
               <p><%= to_markdown(@orid.interpretive) %></p>
-              <h3>Decisional</h3>
+              <br>
+              <h4>Decisional</h4>
               <hr>
               <p><%= to_markdown(@orid.decisional) %></p>
             </div>
@@ -56,32 +57,33 @@
     </div>
   </div>
 
+
   <div class="group">
     <%= link_to("我要发言", new_orid_post_path(@orid), class: "btn btn-danger pull-left") %>
   </div>
   <div class="post">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>文章内容</th>
-          <th>发表者</th>
-          <th>发表时间</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @posts.each do |post| %>
-        <tr>
-          <td><%= simple_format(post.content) %></td>
-          <td><%= post.user.display_name %></td>
-          <td><%= post.created_at %></td>
-          <td>
-            <%= link_to('Edit', edit_orid_post_path(post.orid, post), class: "btn btn-default btn-xs") %></td>
-          <td>
-            <%= link_to('Delete', orid_post_path(post.orid, post), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default btn-xs") %></td>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>文章内容</th>
+        <th>发表者</th>
+        <th>发表时间</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @posts.each do |post| %>
+      <tr>
+        <td><%= simple_format(post.content) %></td>
+        <td><%= post.user.display_name %></td>
+        <td><%= post.created_at %></td>
+        <td>
+          <%= link_to('Edit', edit_orid_post_path(post.orid, post), class: "btn btn-default btn-xs") %></td>
+        <td>
+          <%= link_to('Delete', orid_post_path(post.orid, post), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default btn-xs") %></td>
 
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
   </div>
 </div>
