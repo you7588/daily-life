@@ -1,6 +1,6 @@
 <div id="feedback-<%= feedback.id %>" class="panel panel-default">
   <div class="panel-heading">
-    <%= feedback.user.name %>
+    <%= feedback.user.display_name %>
 
     <span class="pull-right"><%= feedback.created_at.to_s %>
       <% if current_user && feedback.user == current_user %>

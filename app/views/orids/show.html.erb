@@ -23,7 +23,7 @@
           <div class="row" style="text-align: center">
             <p class="orid-little">
 
-              <i class="fa fa-user" aria-hidden="true"><%= @orid.user.profile.nickname %></i> |
+              <i class="fa fa-user" aria-hidden="true"><%= @orid.user.display_name %></i> |
               <i class="fa fa-calendar" aria-hidden="true">发表于<%= @orid.created_at.to_s(:my) %></i> |
               <i class="fa fa-commenting" aria-hidden="true"><%= @orid.posts.count %></i> |
               <span class="views">
@@ -73,7 +73,7 @@
       <% @posts.each do |post| %>
       <tr>
         <td><%= simple_format(post.content) %></td>
-        <td><%= post.user.email %></td>
+        <td><%= post.user.display_name %></td>
         <td><%= post.created_at %></td>
         <td>
           <%= link_to('Edit', edit_orid_post_path(post.orid, post), class: "btn btn-default btn-xs") %></td>
