@@ -19,8 +19,6 @@ class Admin::UsersController < ApplicationController
     end
   end
 
-
-
   protected
 
   def user_params

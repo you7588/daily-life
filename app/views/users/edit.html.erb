@@ -1,6 +1,26 @@
 <div class="col-md-10 col-md-offset-1">
 <h2>编辑个人资料</h2>
+
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 <%= form_for @user do |f| %>
+
+<div class="form-group">
+  <%= f.label :email %>
+  <%= f.text_field :email, :class => "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= f.label :name %>
+  <%= f.text_field :name, :class => "form-control" %>
+</div>
 
 <%= f.fields_for :profile do |ff| %>
 
